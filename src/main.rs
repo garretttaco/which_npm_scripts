@@ -11,28 +11,21 @@ use std::process;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
     let pathname = Dir::get_pathname(&args).unwrap_or_else(|err| {
         println!("Problem parsing argument: {}", err);
         process::exit(1);
     });
 
-    println!("{:?}", pathname);
     let filename = String::from("package.json");
     let full_path = Dir::resolve_pathname(pathname, filename).unwrap();
-    // Create a path to the desired file
     let path = Path::new(&full_path);
     let display = path.display();
 
-    // Open the path in read-only mode, returns `io::Result<File>`
     let mut file = match File::open(&path) {
-        // The `description` method of `io::Error` returns a string that
-        // describes the error
         Err(why) => panic!("couldn't open {}: {}", display, why.description()),
         Ok(file) => file,
     };
 
-    // Read the file contents into a string, returns `io::Result<usize>`
     let mut s = String::new();
     let mut package_json = match file.read_to_string(&mut s) {
         Err(why) => panic!("couldn't read {}: {}", display, why.description()),
@@ -44,7 +37,6 @@ fn main() {
 
     let parsed_json = &json::parse(&package_json).unwrap()["scripts"];
     println!("{:?}", parsed_json.dump());
-    // `file` goes out of scope, and the "hello.txt" file gets closed
 }
 
 
