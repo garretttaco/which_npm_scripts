@@ -42,7 +42,6 @@ fn get_pathname(args: &[String]) -> Result<String, &'static str> {
         let pathname = env::current_dir().unwrap();
         let forward_slash = String::from("/");
         return Ok(pathname.display().to_string() + &forward_slash)
-        // return Err("You need to supply the path to the directory containing your package.json as the first command line argument")
     }
     let pathname = args[1].clone();
     Ok(pathname)
