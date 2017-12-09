@@ -7,3 +7,14 @@ This works well with having a bash alias that sends the current working director
 ```shell
 alias scripts='pwd | ~/which_npm_scripts/target/release/which_npm_scripts'
 ```
+
+Then its as simple as
+```shell
+~/some_contrived_app_name $ scripts
+{
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+}
+```
