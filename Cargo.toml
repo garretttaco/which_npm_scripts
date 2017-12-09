@@ -1,5 +1,5 @@
 [package]
-name = "fetch_npm_scripts"
+name = "which_npm_scripts"
 version = "0.1.0"
 authors = ["Garrett Tacoronte <garretttacoronte@gmail.com>"]
 
