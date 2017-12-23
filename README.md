@@ -1,5 +1,4 @@
-**This repo is an experimental, project, with the intent to learn Rust by building a semi-useful
-tool**
+**This module is meant to be a semi replacement/improvement for the `npm run` command without arguments. Its intent is to learn Rust by building a semi-useful tool**
 
 Ever wonder what npm scripts are in your package.json file? Well wonder no more! With this handy little script, you can log out just the scritps to the terminal!
 
